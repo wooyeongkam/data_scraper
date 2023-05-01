@@ -1,0 +1,8 @@
+## dotenv
+
+```
+REDIS_HOST=
+REDIS_PORT=
+REDIS_USERNAME=
+REDIS_PASSWORD=
+```
