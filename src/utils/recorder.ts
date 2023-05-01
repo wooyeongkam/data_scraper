@@ -1,7 +1,7 @@
 import { logger } from '../logger';
 import { redisClient } from '../redis-config';
 
-export const recordData = () => {
+export const recorder = () => {
   const client = redisClient.duplicate({
     legacyMode: true,
   });
@@ -23,9 +23,9 @@ export const recordData = () => {
     }
   };
 
-  const startRecordData = async (key: string) => {
+  const recordData = async (key: string) => {
     setInterval(async () => await getData(key), 1000);
   };
 
-  return { startRecorder, startRecordData };
+  return { startRecorder, recordData };
 };

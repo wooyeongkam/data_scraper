@@ -1,8 +1,8 @@
-import { recordData } from './utils/start-record-data';
+import { recorder } from './utils/recorder';
 import { sub } from './utils/subscriber';
 
 const { startSub, subChannel } = sub();
-const { startRecorder, startRecordData } = recordData();
+const { startRecorder, recordData } = recorder();
 
 startSub(() => {
   subChannel('nas:image:ir');
@@ -10,6 +10,6 @@ startSub(() => {
 });
 
 startRecorder(() => {
-  startRecordData('nmea:vdm');
-  startRecordData('nmea:ttm');
+  recordData('nmea:vdm');
+  recordData('nmea:ttm');
 });
