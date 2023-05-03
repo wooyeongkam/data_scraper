@@ -1,5 +1,5 @@
-import * as redis from 'redis';
-import dotenv from 'dotenv';
+import * as redis from "redis";
+import dotenv from "dotenv";
 
 dotenv.config();
 

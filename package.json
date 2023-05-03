@@ -6,14 +6,16 @@
   "author": "kamwoo <rkadndud06@naver.com>",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node ./src/app.ts"
+    "start": "ts-node ./src/utils/vdt-udp.ts"
   },
   "dependencies": {
     "@types/node": "^18.16.3",
     "@types/redis": "^4.0.11",
     "@types/winston": "^2.4.4",
+    "dgram": "^1.0.1",
     "dotenv": "^16.0.3",
     "redis": "^4.6.6",
+    "sharp": "^0.32.1",
     "ts-node": "^10.9.1",
     "tsc": "^2.0.4",
     "typescript": "^5.0.4",
