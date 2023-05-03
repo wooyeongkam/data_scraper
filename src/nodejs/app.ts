@@ -1,12 +1,12 @@
-import { recorder } from "./utils/recorder";
-import { sub } from "./utils/subscriber";
+import { recorder } from './utils/recorder';
+import { sub } from './utils/subscriber';
 
 const { startSub, subChannel } = sub();
 const { startRecorder, recordData } = recorder();
 
 startSub(() => {
-  subChannel("nas:image:ir");
-  subChannel("nas:image:eo");
+  subChannel('nas:image:ir');
+  subChannel('nas:image:eo');
 });
 
 // startRecorder(() => {

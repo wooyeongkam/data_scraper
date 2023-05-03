@@ -1,7 +1,7 @@
-import { logger } from "../logger";
-import { redisClient } from "../redis-config";
-import sharp from "sharp";
-import fs from "fs";
+import { logger } from '../logger';
+import { redisClient } from '../redis-config';
+import sharp from 'sharp';
+import fs from 'fs';
 
 export const sub = () => {
   const client = redisClient.duplicate({
@@ -9,11 +9,11 @@ export const sub = () => {
   });
 
   const startSub = (callback: () => void) => {
-    client.on("connect", () => {
-      console.log("redis Sub connected");
+    client.on('connect', () => {
+      console.log('redis Sub connected');
       callback();
     });
-    client.on("error", (error) => console.log("redis Sub error"));
+    client.on('error', (error) => console.log('redis Sub error'));
     client.connect();
   };
 
@@ -21,8 +21,8 @@ export const sub = () => {
     try {
       await client.subscribe(channel, (message: any) => {
         if (message) {
-          const buffer = Buffer.from(message["data"], "base64");
-          const image = sharp(buffer).toFile("123.jpeg");
+          const buffer = Buffer.from(message['data'], 'base64');
+          const image = sharp(buffer).toFile('123.jpeg');
           console.log(image);
           // fs.writeFile("123.jpeg", image, () => {});
           // image
@@ -38,7 +38,7 @@ export const sub = () => {
         }
       });
 
-      console.log(channel, "connected");
+      console.log(channel, 'connected');
     } catch (error) {
       console.log(error);
     }
