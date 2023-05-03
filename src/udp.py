@@ -1,11 +1,11 @@
 import socket
 
-UDP_IP = "192.168.0.200"  # 수신할 IP 주소를 설정합니다.
-UDP_PORT = 6501  # 수신할 포트 번호를 설정합니다.
+UDP_IP = "192.168.0.200"  # 수신할 IP 주소를 설정
+UDP_PORT = 6501  # 수신할 포트 번호를 설정
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind((UDP_IP, UDP_PORT))
-text = open("./txt.log", "w")
+text = open("./test.log", "w")
 
 while True:
     try:

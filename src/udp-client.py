@@ -2,7 +2,7 @@ import socket
 
 #3037, 6379, 6501
 
-msgFromClient       = "Hello UDP Server"
+msgFromClient       = "UDP Server"
 serverAddressPort   = ("192.168.0.200", 3037)
 bufferSize          = 1024
 
