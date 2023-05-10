@@ -22,11 +22,11 @@ def get_unix_timestamp():
   return unix_timestamp
 
 
-def save_image(message, type):
-  if message and "data" in message and type(message["data"]) == int:
+def save_image(message, camera_type):
+  if message and "data" in message and type(message["data"]) != int:
     image = Image.open(io.BytesIO(message["data"]))
     now = get_unix_timestamp()
-    image.save(f"./{type}_img/{now}.jpg")
+    image.save(f"./{camera_type}_img/{now}.jpg")
 
 
 async def start_record_eo():
@@ -47,17 +47,3 @@ async def start_record_ir():
 
   except asyncio.CancelledError:
     print('ir stop')
-
-
-async def main():
-  task1 = asyncio.create_task(start_record_eo())
-  task2 = asyncio.create_task(start_record_ir())
-  await asyncio.gather(task1, task2)
-
-loop = asyncio.get_event_loop()
-
-try:
-  asyncio.run(main())
-except:
-  loop.stop()
-  loop.close()
