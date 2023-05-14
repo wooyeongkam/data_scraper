@@ -1,18 +1,7 @@
-from redis import Redis
 import io
 from PIL import Image
 import datetime
 import asyncio
-import datetime
-
-
-redis = Redis(host="192.168.0.200", port=30379, db =0)
-
-pubsub_eo = redis.pubsub()
-pubsub_ir = redis.pubsub()
-
-pubsub_eo.subscribe("nas:image:eo", timeout=1)
-pubsub_ir.subscribe("nas:image:ir", timeout=1)
 
 
 def get_unix_timestamp():
@@ -29,7 +18,7 @@ def save_image(message, camera_type):
     image.save(f"./{camera_type}_img/{now}.jpg")
 
 
-async def start_record_eo():
+async def start_record_eo(pubsub_eo):
   try:
     while True:
       for message in pubsub_eo.listen():
@@ -39,7 +28,7 @@ async def start_record_eo():
     print('eo stop')
 
 
-async def start_record_ir():
+async def start_record_ir(pubsub_ir):
   try:
     while True:
       for message in pubsub_ir.listen():

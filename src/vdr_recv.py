@@ -1,14 +1,8 @@
-import socket
 import asyncio
 
-UDP_IP = "0.0.0.0"  # 수신할 IP 주소를 설정
-UDP_PORT = 6501  # 수신할 포트 번호를 설정
-
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.bind((UDP_IP, UDP_PORT))
 text = open("./vdr_log/test.log", "wb")
 
-async def start_record_vdr():
+async def start_record_vdr(sock):
     try:
         while True:
             try:
