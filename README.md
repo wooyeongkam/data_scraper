@@ -9,7 +9,8 @@
   - vdr은 AvikusSimNet5G로 잡아야함
 - 선상
   - 선상에서는 하나의 네트워크로 둘 다 동작할 것으로 예상
-  - 동작하지 않을 경우, option으로 저장할 것 설정 가능, 아래 option 참조
+  - 동작하지 않을 경우, option으로 카메라 이미지나 VDR 끄기 설정 가능, 아래 option 참조
+  - VDR값 저장하는게 막상 나가서 동작 안할 가능성이 있습니다. 그럴 경우에 `python3 src/main.py --no-vdr`로 실행하고, nmea-parser에서 DUMP 옵션을 켜서 저장해야 할 것 같습니다.
 - 저장 파일명
   - unix-time stamp
 
