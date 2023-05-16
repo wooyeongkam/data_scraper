@@ -1,8 +1,18 @@
 import asyncio
+import datetime
 
-text = open("./vdr_log/test.log", "wb")
+
+def get_unix_timestamp():
+  utc_now = datetime.datetime.utcnow()
+  unix_timestamp = int(utc_now.timestamp())
+
+  return unix_timestamp
+
 
 async def start_record_vdr(sock):
+    now = get_unix_timestamp()
+    text = open(f"./src/vdr_log/{now}.log", "wb")
+
     try:
         while True:
             try:
@@ -14,6 +24,8 @@ async def start_record_vdr(sock):
             except KeyboardInterrupt:
                 sock.close()
                 break
+
+            await asyncio.sleep(1)
 
     except asyncio.CancelledError:
         print('vdr stop')
