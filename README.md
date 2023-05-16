@@ -25,7 +25,7 @@ source .venv/bin/activate
 
 ```
 pip install --upgrade pip
-pip install -r requirements.text
+pip install -r requirements.txt
 ```
 
 ## Running
@@ -47,14 +47,14 @@ python3 src/main.py
  --vdr-ip
  --vdr-port
 
- EO/IR 카메라 이미지 저장 X
- ex) python3 src/main.py --no-camera
+ ex) EO/IR 카메라 이미지 저장 X
+ python3 src/main.py --no-camera
 
- VDR 값 저장 X
- ex) python3 src/main.py --no-vdr
+ ex) VDR 값 저장 X
+ python3 src/main.py --no-vdr
 
- redis ip 변경
- ex) python3 src/main.py --redis-ip 192.168.0.1
+ ex) redis ip 변경
+ python3 src/main.py --redis-ip 192.168.0.1
 
 ```
 
